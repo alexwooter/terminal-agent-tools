@@ -1,0 +1,42 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.terminalup/odds",
+  "description": "TerminalUp Odds API: best sports prices, ladders and liquidity across sportsbooks, betting exchanges and prediction markets. Read-only.",
+  "repository": {
+    "url": "https://github.com/terminalup/agent-tools",
+    "source": "github",
+    "subfolder": "mcp"
+  },
+  "version": "0.1.0",
+  "websiteUrl": "https://terminalup.com",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "terminalup-odds-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "TERMINALUP_API_KEY",
+          "description": "TerminalUp API key (tu_live_ or tu_test_). Request one at https://terminalup.com/contact.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.terminalup.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer tu_live_... for live markets. Omit for sandbox data.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+# Draft catalog entry for NousResearch/hermes-agent → optional-mcps/terminalup-odds/manifest.yaml
+# Submit as a PR once the remote server is live at the URL below.
+manifest_version: 1
+
+name: terminalup-odds
+description: 'TerminalUp Odds API: best sports prices, ladders and liquidity across sportsbooks, betting exchanges and prediction markets.'
+source: https://github.com/terminalup/agent-tools/tree/main/mcp
+
+# Vendor-hosted remote MCP (URL-only). Works anonymously on sandbox data;
+# a TerminalUp key as a Bearer header unlocks live markets.
+transport:
+  type: http
+  url: https://mcp.terminalup.com/mcp
+
+auth:
+  type: none
+
+suggest:
+  keywords:
+    - terminalup
+    - sports odds
+    - best price
+    - prediction market
+    - betting exchange
+  hosts:
+    - terminalup.com
+
+post_install: |
+  Works immediately on sandbox data (synthetic markets, labelled as such).
+  For live prices request a key at https://terminalup.com/contact and add
+  it as a Bearer header via mcp_servers.terminalup-odds.headers in
+  config.yaml, then restart the session.
