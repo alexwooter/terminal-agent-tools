@@ -1,6 +1,6 @@
 # Distribution checklist
 
-Order matters. Steps 1 to 3 unlock everything else.
+Order matters. Everything after step 3 depends on steps 1 to 3.
 
 ## 1. Publish this repo
 - Create the public GitHub repo (suggested: `terminalup/agent-tools`). Push `main`.
