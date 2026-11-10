@@ -3,9 +3,9 @@
 Order matters. Everything after step 3 depends on steps 1 to 3.
 
 ## Status, 10 Nov 2026
-- Repo `alexwooter/terminal-agent-tools` exists on GitHub but is empty. The push from Claude is refused until the Claude GitHub App is given access to this repo (github.com/settings/installations, Claude, Repository access, add terminal-agent-tools). Then `git push -u origin main` from the local clone goes through.
+- Repo `alexwooter/terminal-agent-tools` is on GitHub with `main` pushed (10 Nov, afternoon).
 - Remote MCP server is deployed on Replit (app "terminalup-odds-mcp", built from `mcp/` verbatim) at https://slategrey-respectful-pdf.replit.app with `/mcp` and `/healthz`. No key is configured yet, so anonymous calls get `terminalup_status` and `terminalup_docs` only. Set `TERMINALUP_SANDBOX_KEY` in that app's Secrets to turn on sandbox data for everyone.
-- `mcp.terminalup.com` is not pointed yet: in the Replit app, Publishing, Domains, add `mcp.terminalup.com`, then add the CNAME it shows at GoDaddy. Every listing file already uses that hostname.
+- `mcp.terminalup.com`: added in the Replit app's Domains panel; the GoDaddy Domain Connect approval is Alex's click (Claude is not allowed to change DNS on terminalup.com). Every listing file already uses that hostname.
 - Not done and needing a login: npm publish (step 3), skills.sh first install (4), Hermes PR (5), LobeHub (6), registry publish (7), mcp-submit (8).
 
 ## 1. Publish this repo
