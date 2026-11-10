@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
-  "name": "io.github.terminalup/odds",
+  "name": "io.github.alexwooter/terminalup-odds",
   "description": "TerminalUp Odds API: best sports prices, ladders and liquidity across sportsbooks, betting exchanges and prediction markets. Read-only.",
   "repository": {
-    "url": "https://github.com/terminalup/agent-tools",
+    "url": "https://github.com/alexwooter/terminal-agent-tools",
     "source": "github",
     "subfolder": "mcp"
   },

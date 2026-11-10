@@ -2,14 +2,14 @@
 
 Agent skills and an MCP server for the [TerminalUp Odds API](https://terminal-up-hq.replit.app/docs). TerminalUp is a cross-venue sports trading terminal: one account, orders routed to sportsbooks, betting exchanges and prediction markets. The Odds API publishes the best fee-adjusted price per outcome, raw top of book, a bounded price ladder with stake, liquidity and venue counts for every market TerminalUp covers.
 
-[![Install with skills](https://skills.sh/badge.svg)](https://skills.sh/terminalup/agent-tools)
+[![Install with skills](https://skills.sh/badge.svg)](https://skills.sh/alexwooter/terminal-agent-tools)
 
 ## Skill
 
 Teaches an agent how to read TerminalUp prices over REST, Server-Sent Events and WebSocket: keys and sandbox, endpoints, the market payload, status and freshness semantics, pagination, limits and errors.
 
 ```bash
-npx skills add terminalup/agent-tools --skill terminalup-odds-api
+npx skills add alexwooter/terminal-agent-tools --skill terminalup-odds-api
 ```
 
 Works with Claude Code, Cursor, Codex, Gemini CLI, Hermes Agent and any agent that reads `SKILL.md`. Source: [`skills/terminalup-odds-api`](skills/terminalup-odds-api/SKILL.md).

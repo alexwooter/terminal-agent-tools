@@ -45,7 +45,7 @@ const landing = `<!doctype html><meta charset="utf-8"><title>TerminalUp Odds MCP
   }
 }</pre>
 <p>Tools: terminalup_status, terminalup_sports, terminalup_events, terminalup_markets, terminalup_market, terminalup_find_price, terminalup_docs.</p>
-<p>API docs: <a href="https://terminal-up-hq.replit.app/docs">terminal-up-hq.replit.app/docs</a>. Keys: <a href="https://terminalup.com/contact">terminalup.com/contact</a>. Source: <a href="https://github.com/terminalup/agent-tools">github.com/terminalup/agent-tools</a>.</p>`;
+<p>API docs: <a href="https://terminal-up-hq.replit.app/docs">terminal-up-hq.replit.app/docs</a>. Keys: <a href="https://terminalup.com/contact">terminalup.com/contact</a>. Source: <a href="https://github.com/alexwooter/terminal-agent-tools">github.com/alexwooter/terminal-agent-tools</a>.</p>`;
 
 async function handle(req: IncomingMessage, res: ServerResponse): Promise<void> {
   const url = new URL(req.url ?? "/", `http://${req.headers.host ?? "localhost"}`);

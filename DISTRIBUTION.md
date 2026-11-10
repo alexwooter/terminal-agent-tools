@@ -3,7 +3,7 @@
 Order matters. Everything after step 3 depends on steps 1 to 3.
 
 ## 1. Publish this repo
-- Create the public GitHub repo (suggested: `terminalup/agent-tools`). Push `main`.
+- Create the public GitHub repo (suggested: `alexwooter/terminal-agent-tools`). Push `main`.
 - Update the three places that hard-code the repo path if the name differs: `README.md` badge and install line, `mcp/src/http.ts` landing page, `hermes/manifest.yaml` source.
 
 ## 2. Deploy the remote MCP server
@@ -16,8 +16,8 @@ Order matters. Everything after step 3 depends on steps 1 to 3.
 - This makes `npx -y terminalup-odds-mcp` work, which every stdio-based directory listing depends on.
 
 ## 4. skills.sh (Vercel, DR 82)
-- Listing is driven by install telemetry. Run `npx skills add terminalup/agent-tools --skill terminalup-odds-api` once from a clean machine, then post the install line.
-- Badge is already in `README.md`. Check `https://skills.sh/terminalup/agent-tools` after the first installs.
+- Listing is driven by install telemetry. Run `npx skills add alexwooter/terminal-agent-tools --skill terminalup-odds-api` once from a clean machine, then post the install line.
+- Badge is already in `README.md`. Check `https://skills.sh/alexwooter/terminal-agent-tools` after the first installs.
 
 ## 5. Hermes Agent catalog (Nous Research, DR 84)
 - Fork `NousResearch/hermes-agent`, add `optional-mcps/terminalup-odds/manifest.yaml` from `hermes/manifest.yaml`, open a PR. Presence in that directory means Nous approval, so the PR text should state: vendor-hosted, URL-only, works anonymously on sandbox data, Bearer header for live, read-only tools, no process spawned.
@@ -27,7 +27,7 @@ Order matters. Everything after step 3 depends on steps 1 to 3.
 - LobeHub builds the page from the public GitHub README. Use the publish flow on https://lobehub.com/mcp (the "Publish" prompt for your agent), pointing at the repo. Keep `mcp/README.md` as the install source of truth.
 
 ## 7. Official MCP Registry
-- `server.json` is in `mcp/`. Install `mcp-publisher`, `mcp-publisher login github`, then `mcp-publisher publish` from `mcp/`. Namespace `io.github.terminalup/odds` requires the GitHub org to match.
+- `server.json` is in `mcp/`. Install `mcp-publisher`, `mcp-publisher login github`, then `mcp-publisher publish` from `mcp/`. Namespace `io.github.alexwooter/terminalup-odds` requires the GitHub org to match.
 
 ## 8. Other directories (one pass)
 - `npx mcp-submit` from `mcp/` submits to the official registry, Smithery, mcp.so, PulseMCP, mcpservers.org and both awesome-mcp-servers lists in one run. Use `--dry-run` first. Source: github.com/jordanlyall/mcp-submit.

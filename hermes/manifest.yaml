@@ -4,7 +4,7 @@ manifest_version: 1
 
 name: terminalup-odds
 description: 'TerminalUp Odds API: best sports prices, ladders and liquidity across sportsbooks, betting exchanges and prediction markets.'
-source: https://github.com/terminalup/agent-tools/tree/main/mcp
+source: https://github.com/alexwooter/terminal-agent-tools/tree/main/mcp
 
 # Vendor-hosted remote MCP (URL-only). Works anonymously on sandbox data;
 # a TerminalUp key as a Bearer header unlocks live markets.
