@@ -2,13 +2,20 @@
 
 Order matters. Everything after step 3 depends on steps 1 to 3.
 
+## Status, 10 Nov 2026
+- Repo `alexwooter/terminal-agent-tools` exists on GitHub but is empty. The push from Claude is refused until the Claude GitHub App is given access to this repo (github.com/settings/installations, Claude, Repository access, add terminal-agent-tools). Then `git push -u origin main` from the local clone goes through.
+- Remote MCP server is deployed on Replit (app "terminalup-odds-mcp", built from `mcp/` verbatim) at https://slategrey-respectful-pdf.replit.app with `/mcp` and `/healthz`. No key is configured yet, so anonymous calls get `terminalup_status` and `terminalup_docs` only. Set `TERMINALUP_SANDBOX_KEY` in that app's Secrets to turn on sandbox data for everyone.
+- `mcp.terminalup.com` is not pointed yet: in the Replit app, Publishing, Domains, add `mcp.terminalup.com`, then add the CNAME it shows at GoDaddy. Every listing file already uses that hostname.
+- Not done and needing a login: npm publish (step 3), skills.sh first install (4), Hermes PR (5), LobeHub (6), registry publish (7), mcp-submit (8).
+
 ## 1. Publish this repo
-- Create the public GitHub repo (suggested: `alexwooter/terminal-agent-tools`). Push `main`.
-- Update the three places that hard-code the repo path if the name differs: `README.md` badge and install line, `mcp/src/http.ts` landing page, `hermes/manifest.yaml` source.
+- Repo: `alexwooter/terminal-agent-tools` (created 10 Nov). Push `main` once the Claude GitHub App has access, or push from any machine with the local clone.
+- The repo path is already written into `README.md`, `mcp/src/http.ts`, `hermes/manifest.yaml` and `mcp/server.json`.
 
 ## 2. Deploy the remote MCP server
-- Host `mcp/` anywhere Node 22 runs (Replit as a new artifact next to the Odds API, Fly, Render, a Docker host). `node dist/http.js`, `PORT`, `TERMINALUP_SANDBOX_KEY=tu_test_...` so anonymous visitors get sandbox data.
+- Done on Replit (see Status). Add `TERMINALUP_SANDBOX_KEY=tu_test_...` to its Secrets so anonymous visitors get sandbox data.
 - Point `mcp.terminalup.com` at it. Confirm `GET /healthz` and a `POST /mcp` initialize both answer.
+- Keeping the Replit app in sync with this repo: once the repo is on GitHub, connect the app to it from the Replit Git pane, or re-run the "pull and rebuild" prompt after each change to `mcp/`.
 - Point `odds.terminalup.com` at the Odds API deployment, then set `TERMINALUP_ODDS_BASE_URL=https://odds.terminalup.com` and change `DEFAULT_BASE_URL` in `mcp/src/client.ts` plus the doc links in `skills/terminalup-odds-api/SKILL.md`.
 
 ## 3. Publish the npm package
