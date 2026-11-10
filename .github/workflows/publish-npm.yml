@@ -1,0 +1,49 @@
+name: Publish terminalup-odds-mcp to npm
+
+# Token-free publishing via npm trusted publishing (OIDC).
+# One-time setup on npmjs.com → package settings → Trusted Publisher → GitHub Actions:
+#   Organization or user: alexwooter
+#   Repository:           terminal-agent-tools
+#   Workflow filename:    publish-npm.yml
+# Release: bump "version" in mcp/package.json, commit, then push a tag like mcp-v0.1.1.
+
+on:
+  push:
+    tags:
+      - "mcp-v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - name: Use an npm that supports trusted publishing
+        run: npm install -g npm@latest
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - name: Skip if this version is already on npm
+        id: check
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "$NAME@$VERSION" version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish
+        if: steps.check.outputs.exists == 'false'
+        run: npm publish --access public

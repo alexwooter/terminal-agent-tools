@@ -3,6 +3,16 @@
   "version": "0.1.0",
   "description": "MCP server for the TerminalUp Odds API: best prices, ladders, liquidity and status across sports trading venues. Stdio and Streamable HTTP.",
   "license": "MIT",
+  "author": "TerminalUp Inc. (https://terminalup.com)",
+  "homepage": "https://terminalup.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwooter/terminal-agent-tools.git",
+    "directory": "mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/alexwooter/terminal-agent-tools/issues"
+  },
   "type": "module",
   "bin": {
     "terminalup-odds-mcp": "dist/stdio.js"
@@ -10,6 +20,7 @@
   "main": "dist/server.js",
   "files": [
     "dist",
+    "!dist/test",
     "README.md"
   ],
   "scripts": {
@@ -28,9 +39,11 @@
     "betting-exchange",
     "terminalup"
   ],
-  "homepage": "https://terminalup.com",
   "engines": {
     "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.20.0",
