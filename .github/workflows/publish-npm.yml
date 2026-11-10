@@ -1,11 +1,11 @@
 name: Publish terminalup-odds-mcp to npm
 
-# Token-free publishing via npm trusted publishing (OIDC).
-# One-time setup on npmjs.com → package settings → Trusted Publisher → GitHub Actions:
-#   Organization or user: alexwooter
-#   Repository:           terminal-agent-tools
-#   Workflow filename:    publish-npm.yml
-# Release: bump "version" in mcp/package.json, commit, then push a tag like mcp-v0.1.1.
+# Token-free releases via npm trusted publishing (OIDC), staged.
+# Trusted publisher on npmjs.com (package settings): GitHub Actions,
+#   alexwooter / terminal-agent-tools / publish-npm.yml, stage-only.
+# Release: bump "version" in mcp/package.json, commit, push a tag like mcp-v0.1.1.
+# The workflow stages the version; approve it with 2FA at
+# https://www.npmjs.com/settings/w00ter92/staged-packages and it goes live.
 
 on:
   push:
@@ -44,6 +44,6 @@ jobs:
           else
             echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
-      - name: Publish
+      - name: Stage the release for approval on npmjs.com
         if: steps.check.outputs.exists == 'false'
-        run: npm publish --access public
+        run: npm stage publish --access public

@@ -2,7 +2,11 @@
 
 Order matters. Everything after step 3 depends on steps 1 to 3.
 
-## Status, 10 Nov 2026
+## Status, 10 Nov 2026 (evening)
+
+- npm: `terminalup-odds-mcp@0.1.0` is live (`npx -y terminalup-odds-mcp`). Account `w00ter92`, 2FA with security key. Future releases: tag `mcp-vX.Y.Z` → GitHub Actions stages the version → approve on npmjs.com Staged Packages.
+
+## Status, 10 Nov 2026 (morning)
 - Repo `alexwooter/terminal-agent-tools` is on GitHub with `main` pushed (10 Nov, afternoon).
 - Remote MCP server is deployed on Replit (app "terminalup-odds-mcp", built from `mcp/` verbatim) at https://slategrey-respectful-pdf.replit.app with `/mcp` and `/healthz`. No key is configured yet, so anonymous calls get `terminalup_status` and `terminalup_docs` only. Set `TERMINALUP_SANDBOX_KEY` in that app's Secrets to turn on sandbox data for everyone.
 - `mcp.terminalup.com`: added in the Replit app's Domains panel; the GoDaddy Domain Connect approval is Alex's click (Claude is not allowed to change DNS on terminalup.com). Every listing file already uses that hostname.
