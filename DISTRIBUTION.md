@@ -4,6 +4,9 @@ Order matters. Everything after step 3 depends on steps 1 to 3.
 
 ## Status, 10 Nov 2026 (evening)
 
+- mcp.terminalup.com: DNS correct and Replit shows Verified, but the edge still 404s. Disconnect and re-add the domain in the MCP app's Domains panel.
+- skills.sh lists a repo only after a CLI install: `npx skills add alexwooter/terminal-agent-tools --skill terminalup-odds-api` from any Node shell.
+
 - npm: `terminalup-odds-mcp@0.1.0` is live (`npx -y terminalup-odds-mcp`). Account `w00ter92`, 2FA with security key. Future releases: tag `mcp-vX.Y.Z` → GitHub Actions stages the version → approve on npmjs.com Staged Packages.
 
 ## Status, 10 Nov 2026 (morning)
