@@ -2,6 +2,14 @@
 
 Order matters. Everything after step 3 depends on steps 1 to 3.
 
+## Status, 18 Nov 2026 (night)
+
+- mcp.terminalup.com is live: `GET /` serves the landing page and an anonymous `POST /mcp` initialize answers with the tool list. Do not probe `/healthz` on any Replit host: Google's front end answers that path itself with a bare 404, which is what looked like a broken domain for a week. Use `/` or an MCP initialize as the health check.
+- The fix that completed the routing: Domains panel → Disconnect this domain → re-add → Republish (the banner "Your domains will not be live until you publish" is the tell).
+- npm: trusted publisher saved (GitHub Actions, alexwooter / terminal-agent-tools / publish-npm.yml, stage-only). 0.1.1 staged through it via workflow_dispatch; approving it on Staged Packages validates the publisher. 0.1.1 adds `mcpName` to package.json, which the MCP Registry requires.
+- Tag pushes are blocked from Claude's session; releases run with `gh workflow run publish-npm.yml --ref main` after bumping the version on main.
+- Still Alex's keyboard: `npx skills add ...` (skills.sh), `mcp-publisher login github && mcp-publisher publish` from `mcp/` (registry), LobeHub publish (agent-driven CLI), Hermes PR (fork + PR from his GitHub).
+
 ## Status, 10 Nov 2026 (evening)
 
 - mcp.terminalup.com: DNS correct and Replit shows Verified, but the edge still 404s. Disconnect and re-add the domain in the MCP app's Domains panel.
@@ -21,7 +29,7 @@ Order matters. Everything after step 3 depends on steps 1 to 3.
 
 ## 2. Deploy the remote MCP server
 - Done on Replit (see Status). Add `TERMINALUP_SANDBOX_KEY=tu_test_...` to its Secrets so anonymous visitors get sandbox data.
-- Point `mcp.terminalup.com` at it. Confirm `GET /healthz` and a `POST /mcp` initialize both answer.
+- Point `mcp.terminalup.com` at it. Confirm `GET /` and a `POST /mcp` initialize both answer (`/healthz` is eaten by Google's front end on Replit).
 - Keeping the Replit app in sync with this repo: once the repo is on GitHub, connect the app to it from the Replit Git pane, or re-run the "pull and rebuild" prompt after each change to `mcp/`.
 - Point `odds.terminalup.com` at the Odds API deployment, then set `TERMINALUP_ODDS_BASE_URL=https://odds.terminalup.com` and change `DEFAULT_BASE_URL` in `mcp/src/client.ts` plus the doc links in `skills/terminalup-odds-api/SKILL.md`.
 
