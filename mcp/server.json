@@ -7,14 +7,16 @@
     "source": "github",
     "subfolder": "mcp"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://terminalup.com",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "terminalup-odds-mcp",
-      "version": "0.1.0",
-      "transport": { "type": "stdio" },
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
         {
           "name": "TERMINALUP_API_KEY",

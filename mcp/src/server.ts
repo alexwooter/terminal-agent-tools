@@ -14,7 +14,7 @@ import {
 } from "./client.js";
 
 export const SERVER_NAME = "terminalup-odds";
-export const SERVER_VERSION = "0.1.0";
+export const SERVER_VERSION = "0.1.1";
 
 const oddsFormat = z.enum(["decimal", "american", "probability"]).default("decimal").describe("Odds format for every odds field.");
 const league = z.string().max(200).optional().describe("League code(s), case-insensitive, comma-separated. Example: NFL or NFL,NCAAF.");

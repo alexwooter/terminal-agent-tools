@@ -1,6 +1,7 @@
 {
   "name": "terminalup-odds-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "mcpName": "io.github.alexwooter/terminalup-odds",
   "description": "MCP server for the TerminalUp Odds API: best prices, ladders, liquidity and status across sports trading venues. Stdio and Streamable HTTP.",
   "license": "MIT",
   "author": "TerminalUp Inc. (https://terminalup.com)",
